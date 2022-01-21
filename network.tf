@@ -3,6 +3,7 @@ resource "azurerm_virtual_network" "anf" {
   location            = azurerm_resource_group.anf.location
   resource_group_name = azurerm_resource_group.anf.name
   address_space       = ["10.0.0.0/16"]
+  #dns_servers         = ["10.0.3.5"]                        # Uncomment this and update the IP, if you are using AD Connection
 }
 
 resource "azurerm_subnet" "anf" {
@@ -43,7 +44,7 @@ resource "azurerm_network_security_group" "myterraformnsg" {
     access                     = "Allow"
     protocol                   = "Tcp"
     source_port_range          = "*"
-    destination_port_ranges     = ["22","3389"]
+    destination_port_ranges    = ["22", "3389"]
     source_address_prefix      = "10.10.10.10"
     destination_address_prefix = "*"
   }

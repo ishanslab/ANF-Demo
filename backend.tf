@@ -2,10 +2,10 @@
 terraform {
   backend "remote" {
     hostname     = "app.terraform.io"
-    organization = "leafvillage"
+    organization = "leafvillage"    # Your Org name
 
     workspaces {
-      name = "netapp-ms"
+      name = "ANF-Demo"             # Workspace name
 
     }
   }

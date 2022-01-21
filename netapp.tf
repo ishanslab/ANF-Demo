@@ -40,6 +40,7 @@ resource "azurerm_netapp_account" "anf" {
   location            = azurerm_resource_group.anf.location
   resource_group_name = azurerm_resource_group.anf.name
 
+# Uncomment the below lines if you want to use AD connection
   #active_directory {
   #  username            = "aduser"
   #  password            = "aduserpwd"
@@ -59,46 +60,9 @@ resource "azurerm_netapp_pool" "anf" {
   size_in_tb          = 4
 }
 
-# test block feel free to delete later
-#resource "azurerm_netapp_pool" "test" {
-#  name                = "test-netapppool"
-#  location            = azurerm_resource_group.anf.location
-#  resource_group_name = azurerm_resource_group.anf.name
-#  account_name        = azurerm_netapp_account.anf.name
-#  service_level       = "Ultra"
-#  size_in_tb          = 4
-#}
 
-#resource "azurerm_netapp_volume" "exampletest" {
-#  lifecycle {
-#    prevent_destroy = false
-#  }
 
-#  name                       = "anf-netappvolume"
-#  location                   = azurerm_resource_group.anf.location
-#  resource_group_name        = azurerm_resource_group.anf.name
-#  account_name               = azurerm_netapp_account.anf.name
-#  pool_name                  = azurerm_netapp_pool.test.name
-#  volume_path                = "my-unique-file-test"
-#  service_level              = "Ultra"
-#  subnet_id                  = azurerm_subnet.anf.id
-#  protocols                  = ["NFSv3"]
-#  security_style             = "Unix"
-#  storage_quota_in_gb        = 1024
-#  snapshot_directory_visible = false
-
-#  export_policy_rule {
-#    rule_index          = 1
-#    allowed_clients     = ["10.0.0.0/16"]
-#    unix_read_only      = false
-#    unix_read_write     = true
-#    root_access_enabled = true
-#    protocols_enabled   = ["NFSv3"]
-#  }
-
-#}
-
-# test block, feel free to delete later 
+# test block, for SMB Share   ########################### 
 
 #resource "azurerm_netapp_volume" "anf" {
 #  lifecycle {
@@ -128,6 +92,9 @@ resource "azurerm_netapp_pool" "anf" {
 #}
 
 #}
+
+# test block, for SMB Share ends  ###########################
+
 
 resource "azurerm_netapp_volume" "example2" {
   lifecycle {

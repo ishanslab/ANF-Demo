@@ -56,7 +56,7 @@ resource "random_id" "randomId" {
 
 
 
-# Create virtual machine
+# Create Linux virtual machine for NFS Shares
 resource "azurerm_linux_virtual_machine" "anf" {
   name                  = "netappvm"
   location              = "eastus"
@@ -88,8 +88,9 @@ resource "azurerm_linux_virtual_machine" "anf" {
 
 }
 
-##### VM Part  ####################################
 
+
+##### Create Windows VM for AD Role and SMB Share ###########################
 
 resource "azurerm_network_interface" "win_nic" {
   name                = "win-nic"
@@ -126,3 +127,5 @@ resource "azurerm_windows_virtual_machine" "win_vm" {
     version   = "latest"
   }
 }
+
+##### VM Part  ####################################

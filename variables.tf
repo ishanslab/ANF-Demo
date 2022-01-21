@@ -1,3 +1,5 @@
+# variable section
+
 variable "subid" {
 
   type = string
