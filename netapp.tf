@@ -40,7 +40,7 @@ resource "azurerm_netapp_account" "anf" {
   location            = azurerm_resource_group.anf.location
   resource_group_name = azurerm_resource_group.anf.name
 
-# Uncomment the below lines if you want to use AD connection
+  # Uncomment the below lines if you want to use AD connection
   #active_directory {
   #  username            = "aduser"
   #  password            = "aduserpwd"
