@@ -56,7 +56,7 @@ resource "azurerm_netapp_pool" "anf" {
   location            = azurerm_resource_group.anf.location
   resource_group_name = azurerm_resource_group.anf.name
   account_name        = azurerm_netapp_account.anf.name
-  service_level       = "Standard"
+  service_level       = "Premium"
   size_in_tb          = 4
 }
 
