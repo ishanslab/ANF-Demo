@@ -58,7 +58,8 @@ resource "azurerm_netapp_pool" "anf" {
   account_name        = azurerm_netapp_account.anf.name
   service_level       = "Premium"
   size_in_tb          = 4
-}
+  #qos_type            = "Manual"
+  }
 
 
 
