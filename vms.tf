@@ -91,7 +91,7 @@ resource "azurerm_linux_virtual_machine" "anf" {
 
 
 ##### Create Windows VM for AD Role and SMB Share ###########################
-
+/*
 resource "azurerm_network_interface" "win_nic" {
   name                = "win-nic"
   location            = azurerm_resource_group.anf.location
@@ -127,5 +127,5 @@ resource "azurerm_windows_virtual_machine" "win_vm" {
     version   = "latest"
   }
 }
-
+*/
 ##### VM Part  ####################################

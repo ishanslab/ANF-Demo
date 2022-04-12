@@ -112,6 +112,35 @@ resource "azurerm_netapp_volume" "example2" {
   subnet_id                  = azurerm_subnet.anf.id
   protocols                  = ["NFSv4.1"]
   security_style             = "Unix"
+  storage_quota_in_gb        = 2048
+  snapshot_directory_visible = false
+
+  export_policy_rule {
+    rule_index          = 1
+    allowed_clients     = ["10.0.0.0/16"]
+    unix_read_only      = false
+    unix_read_write     = true
+    root_access_enabled = true
+    protocols_enabled   = ["NFSv4.1"]
+  }
+
+}
+
+resource "azurerm_netapp_volume" "example3" {
+  lifecycle {
+    prevent_destroy = false
+  }
+
+  name                       = "example3-netappvolume"
+  location                   = azurerm_resource_group.anf.location
+  resource_group_name        = azurerm_resource_group.anf.name
+  account_name               = azurerm_netapp_account.anf.name
+  pool_name                  = azurerm_netapp_pool.anf.name
+  volume_path                = "my-unique-file-path3"
+  service_level              = "Ultra"
+  subnet_id                  = azurerm_subnet.anf.id
+  protocols                  = ["NFSv4.1"]
+  security_style             = "Unix"
   storage_quota_in_gb        = 1024
   snapshot_directory_visible = false
 
@@ -125,6 +154,7 @@ resource "azurerm_netapp_volume" "example2" {
   }
 
 }
+
 
 ##### NFS part ####################################
 
