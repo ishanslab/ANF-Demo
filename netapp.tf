@@ -58,7 +58,7 @@ resource "azurerm_netapp_pool" "anf" {
   account_name        = azurerm_netapp_account.anf.name
   service_level       = "Ultra"
   size_in_tb          = 4
-  #qos_type            = "Manual"
+  qos_type            = "Manual"
   }
 
 
@@ -114,6 +114,7 @@ resource "azurerm_netapp_volume" "example2" {
   security_style             = "Unix"
   storage_quota_in_gb        = 2048
   snapshot_directory_visible = false
+  throughput_in_mibps        = "100"
 
   export_policy_rule {
     rule_index          = 1
@@ -143,6 +144,7 @@ resource "azurerm_netapp_volume" "example3" {
   security_style             = "Unix"
   storage_quota_in_gb        = 1024
   snapshot_directory_visible = false
+  throughput_in_mibps        = "100"
 
   export_policy_rule {
     rule_index          = 1
