@@ -127,6 +127,7 @@ resource "azurerm_netapp_volume" "example2" {
 
 }
 
+/*
 resource "azurerm_netapp_volume" "example3" {
   lifecycle {
     prevent_destroy = false
@@ -156,7 +157,7 @@ resource "azurerm_netapp_volume" "example3" {
   }
 
 }
-
+*/
 
 ##### NFS part ####################################
 
